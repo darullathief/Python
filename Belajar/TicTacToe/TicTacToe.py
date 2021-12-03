@@ -1,3 +1,5 @@
+#Program TicTacToe dengan command line
+import random
 
 #Membuat papan/board
 def printBoard():
@@ -32,24 +34,21 @@ def player1Move():
             print('Silahkan pilih no. 1-9')
             continue
 
-#Giliran Player 2
-def player2Move():
-    print('Giliran Player 2')
+#Giliran computer
+def computerMove():
+    print('Giliran Computer')
     run = True
     while run:
         if boardFull(board): #Cek board sudah penuh
             break
-
-        move = int(input('Masukan pilihan untuk menempatkan \'O\' (1-9): '))
+        move = random.randrange(1,10)
         if move > 0 and move < 10:
             if freeSpace(move): #Cek board kosong atau terisi
                 run = False
                 insertLetter('O', move)
             else:
-                print('Maaf, Tempat telah terisi')
                 continue
         else:
-            print('Silahkan pilih no. 1-9')
             continue
 
 #Menambah simbol ke dalam indeks board
